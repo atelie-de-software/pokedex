@@ -16,7 +16,6 @@
 
 <script>
 // @ is an alias to /src
-import axios from 'axios'
 import List from '@/components/List'
 import Paginate from '@/components/Paginate'
 

@@ -37,21 +37,12 @@ export default {
     List,
     Paginate
   },
-  methods: {
-    getAllPokemons: function () {
-      const self = this
-      axios.get('https://pokeapi.co/api/v2/pokemon').then(function (res) {
-        self.$store.commit('writePokeList', res.data.results)
-        self.count = res.data.count
-      })
-    }
-  },
   mounted: function () {
     this.$nextTick(function () {
       if (this.$route.query.page) {
         this.$store.dispatch('loadPage', this.$route.query.page)
       } else {
-        this.getAllPokemons()
+        this.$store.dispatch('loadPage', 1)
       }
     })
   }
